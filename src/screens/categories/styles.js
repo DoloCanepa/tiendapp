@@ -5,5 +5,9 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center', 
-    }
+    },
+    title: {
+        fontFamily: 'Hind-Regular',
+        fontSize: 25,
+    },
 });
