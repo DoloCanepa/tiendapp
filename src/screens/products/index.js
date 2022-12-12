@@ -3,7 +3,10 @@ import { View, Text, Button } from 'react-native';
 import { colors } from '../../constants/themes/colors';
 import { styles } from "./styles";
 
-const Products = ({ navigation }) => {
+const Products = ({ navigation, route }) => {
+    const { categoryId, title } = route.params;
+
+    console.warn('categoryId', categoryId);
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Products</Text>

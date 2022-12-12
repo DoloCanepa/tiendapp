@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import { Categories, Product, Products } from "../screens";
 import { colors } from "../constants/themes/colors";
+import { isIOS } from "../utils";
 
 const Stack = createNativeStackNavigator();
 
@@ -12,12 +13,13 @@ const ShopNavigator = () => {
             initialRouteName="Categories"
             screenOptions={{
                 headerStyle: {
-                  backgroundColor: colors.backgroundDark 
+                  backgroundColor: isIOS ? colors.backgroundDark : colors.backgroundLight,
                 },
                 headerTintColor: colors.text,
                 headerTitleStyle: {
                     fontFamily: 'Hind-SemiBold',
                   },
+                  presentation: 'card', 
               }}>
             
           <Stack.Screen 
@@ -34,7 +36,9 @@ const ShopNavigator = () => {
           <Stack.Screen 
             name="Products" 
             component={Products}
-
+            options={({ route }) => ({
+                title: route.params.title,
+              })}
             />
         </Stack.Navigator>
     );
