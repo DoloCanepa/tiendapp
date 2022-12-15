@@ -20,6 +20,7 @@ const ShopNavigator = () => {
                     fontFamily: 'Hind-SemiBold',
                   },
                   presentation: 'card', 
+                  headerBackTitle: '',
               }}>
             
           <Stack.Screen 
@@ -32,6 +33,9 @@ const ShopNavigator = () => {
           <Stack.Screen 
             name="Product" 
             component={Product} 
+            options={({ route }) => ({
+                title: route.params.title,
+              })}
             />
           <Stack.Screen 
             name="Products" 
