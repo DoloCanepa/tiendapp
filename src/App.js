@@ -1,6 +1,8 @@
 import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Categories, Product, Products } from './screens';
 import { useFonts } from 'expo-font';
+import { Provider } from 'react-redux';
+import store from './store';
 import AppNavigator from './navigation';
 
 export default function App() {
@@ -19,7 +21,11 @@ export default function App() {
       </View>
     )
   }
-  return <AppNavigator />;
+  return (
+    <Provider store={store}>
+      <AppNavigator />
+    </Provider>
+  );
 }
 
 const styles = StyleSheet.create({
