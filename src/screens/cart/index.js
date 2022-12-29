@@ -1,10 +1,12 @@
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { useSelector } from 'react-redux';
 import { CartItem } from '../../components';
-import { CART } from '../../constants/data';
 import { styles } from './styles';
 
 const Cart = ({ navigation }) => {
-    const total = 1400;
+    const cart = useSelector((state) => state.cart.items);
+    const total = useSelector((state) => state.cart.total);
+    
 
     const onDelete = (id) => {
         console.warn('Delete', id);
@@ -15,7 +17,7 @@ const Cart = ({ navigation }) => {
     return (
         <View style={styles.container}>
         <View style={styles.listContainer}>
-            <FlatList data={CART} renderItem={renderItem} style={styles.listContainer} />
+            <FlatList data={cart} renderItem={renderItem} style={styles.listContainer} />
         </View>
           <View style={styles.footer}>
            <TouchableOpacity style={styles.buttonConfirm} onPress={() => null}>
