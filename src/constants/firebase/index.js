@@ -1,0 +1,1 @@
+export const URL_BASE = 'https://tiendapp-81a7d-default-rtdb.firebaseio.com/';
