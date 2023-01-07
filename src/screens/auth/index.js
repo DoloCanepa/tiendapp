@@ -4,7 +4,7 @@ import { styles } from './styles';
 import { isAndroid } from '../../utils';
 import { useDispatch } from 'react-redux';
 import { colors } from "../../constants/themes/colors";
-import { signUp } from '../../store/actions';
+import { signUp, signIn } from '../../store/actions';
 
 
 const Auth = ({navigation}) => {
@@ -17,7 +17,7 @@ const Auth = ({navigation}) => {
     const messageAction = isLogin ? 'Login' : 'Register';
 
     const onHandlerSubmit = () => {
-        dispatch(isLogin ? null : signUp(email, password));
+        dispatch(isLogin ? signIn(email, password) : signUp(email, password));
       };
     return (
         <KeyboardAvoidingView style={styles.keyboardContainer} behavior={isAndroid ? 'height' : 'padding'} enabled>
